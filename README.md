@@ -1,5 +1,4 @@
 Django OTP-Based Email Verification API
-
 A Django-based user authentication system that includes email verification via OTP (One-Time Password). This project allows users to register, request an OTP, and verify their account via email before logging in.
 
 Table of Contents
