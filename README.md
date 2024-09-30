@@ -1,159 +1,77 @@
-Django OTP-Based Email Verification API
-A Django-based user authentication system that includes email verification via OTP (One-Time Password). This project allows users to register, request an OTP, and verify their account via email before logging in.
-
+Login API Project
 Table of Contents
+Project Overview
 Features
-Project Structure
-Technologies Used
-Setup Instructions
+Installation
+Usage
 API Endpoints
-Testing
-Contact Information
-Features
-User Registration: New users can register with their email.
-OTP Generation and Email Verification: An OTP is sent to the user's email for verification.
-JWT Authentication: Users can log in and receive a JWT token for secured access after email verification.
-Error Handling: Proper error messages for invalid OTPs, expired OTPs, and failed requests.
-Project Structure
-markdown
-Copy code
-authentication/
-│
-├── authorize/
-│   ├── __init__.py
-│   ├── admin.py
-│   ├── apps.py
-│   ├── models.py
-│   ├── serializers.py
-│   ├── urls.py
-│   └── views.py
-│
-├── authentication/
-│   ├── settings.py
-│   ├── urls.py
-│   ├── wsgi.py
-│   └── asgi.py
-│
-└── templates/
-    └── email_verification.html
 Technologies Used
-Django (Backend framework)
-Django REST Framework (API development)
-JWT (JSON Web Token for secure authentication)
-PostgreSQL (Database)
-SMTP (Gmail SMTP for sending emails)
-Setup Instructions
-Prerequisites
-Make sure you have the following installed:
+Contributing
+License
+Project Overview
+This project is a simple and efficient Login API built for user authentication. It provides secure methods for user registration, login, and token management. The API is designed to be scalable, maintainable, and easy to integrate into various applications.
 
-Python 3.8+
-pip (Python package manager)
-PostgreSQL (or any other database)
-Step-by-Step Guide
+Features
+User registration with email and password.
+Secure login with hashed passwords.
+JSON Web Token (JWT) authentication.
+Error handling for invalid requests.
+Modular and clean code structure for easy scalability.
+Installation
+To run this project locally, follow these steps:
+
 Clone the repository:
-
 bash
 Copy code
-git clone https://github.com/Manthan-Khamkar/Django-OTP-Email-Verification.git
-cd Django-OTP-Email-Verification
-Create a virtual environment and activate it:
-
+git clone https://github.com/Manthankk/login_API.git
+Navigate to the project directory:
 bash
 Copy code
-python -m venv venv
-source venv/bin/activate  # For Windows: venv\Scripts\activate
-Install the dependencies:
-
+cd login_api_project
+Install the required dependencies:
 bash
 Copy code
-pip install -r requirements.txt
-Configure SMTP settings for email verification:
-
-Open the settings.py file and update the following with your Gmail credentials:
-
-python
-Copy code
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'your-email@gmail.com'
-EMAIL_HOST_PASSWORD = 'your-app-specific-password'
-Note: For security, it's best to use an App Password instead of your main Gmail password.
-
-Apply the migrations and start the server:
-
+npm install
+Start the application:
 bash
 Copy code
-python manage.py migrate
-python manage.py runserver
-Access the project locally: Open your browser and go to http://127.0.0.1:8000/
+npm start
+Usage
+Once the API is running, you can interact with the login and registration endpoints via tools like Postman or curl. Make sure to replace the default environment variables with your own values for production environments.
 
+Example Requests
+Registration:
+bash
+Copy code
+POST /api/register
+{
+  "email": "user@example.com",
+  "password": "securePassword123"
+}
+Login:
+bash
+Copy code
+POST /api/login
+{
+  "email": "user@example.com",
+  "password": "securePassword123"
+}
 API Endpoints
-Endpoint	Method	Description
-/api/register/	POST	Register a new user
-/api/request-otp/	POST	Request OTP for email verification
-/api/verify-otp/	POST	Verify the OTP and log in the user
-Sample Request/Response:
-Register User:
-Endpoint: POST /api/register/
+Method	Endpoint	Description
+POST	/api/register	Registers a new user
+POST	/api/login	Logs in a user
+GET	/api/profile	Gets user profile (auth required)
+Technologies Used
+Node.js: Backend runtime environment.
+Express: Web framework for building APIs.
+MongoDB: NoSQL database for storing user data.
+JWT: For secure token-based authentication.
+Contributing
+Contributions are welcome! To contribute:
 
-json
-Copy code
-{
-    "email": "test@example.com",
-    "password": "yourpassword"
-}
-Response:
-
-json
-Copy code
-{
-    "message": "Registration successful. Please verify your email."
-}
-Request OTP:
-Endpoint: POST /api/request-otp/
-
-json
-Copy code
-{
-    "email": "test@example.com"
-}
-Response:
-
-json
-Copy code
-{
-    "message": "OTP sent to your email."
-}
-Verify OTP:
-Endpoint: POST /api/verify-otp/
-
-json
-Copy code
-{
-    "email": "test@example.com",
-    "otp": "123456"
-}
-Response:
-
-json
-Copy code
-{
-    "message": "Login successful.",
-    "token": "your-jwt-token"
-}
-Testing
-Use Postman or cURL to test the API endpoints.
-Alternatively, you can test email functionality in Django's interactive shell.
-bash
-Copy code
-python manage.py shell
-from django.core.mail import send_mail
-send_mail('Subject here', 'Here is the message.', 'your-email@gmail.com', ['recipient@example.com'], fail_silently=False)
-Contact Information
-For questions or suggestions, feel free to contact:
-
-Manthan Khamkar
-Email: manthankhamkar9@gmail.com
-GitHub: Manthan-Khamkar
+Fork the repository.
+Create a new branch (git checkout -b feature-branch).
+Make your changes.
+Commit your changes (git commit -m "Add some feature").
+Push to the branch (git push origin feature-branch).
+Open a pull request.
