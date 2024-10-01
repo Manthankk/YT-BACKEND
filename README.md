@@ -46,13 +46,13 @@
 
 <h1>Django OTP-Based Email Verification API</h1>
 
-<p>A Django-based user authentication system that includes email verification via OTP (One-Time Password). This project allows users to register, request an OTP, and verify their account via email before logging in.</p>
+<p>A Django-based authentication system that incorporates OTP (One-Time Password) email verification. This API allows users to register, verify their email using an OTP sent to their inbox, and log in securely using JWT (JSON Web Token).</p>
 
 <h2>Table of Contents</h2>
 <ul>
     <li><a href="#features">Features</a></li>
-    <li><a href="#project-structure">Project Structure</a></li>
     <li><a href="#technologies-used">Technologies Used</a></li>
+    <li><a href="#project-structure">Project Structure</a></li>
     <li><a href="#setup-instructions">Setup Instructions</a></li>
     <li><a href="#api-endpoints">API Endpoints</a></li>
     <li><a href="#testing">Testing</a></li>
@@ -61,10 +61,19 @@
 
 <h2 id="features">Features</h2>
 <ul>
-    <li>User Registration: New users can register with their email.</li>
+    <li>User Registration: Users can register with their email.</li>
     <li>OTP Generation and Email Verification: An OTP is sent to the user's email for verification.</li>
-    <li>JWT Authentication: Users can log in and receive a JWT token for secured access after email verification.</li>
-    <li>Error Handling: Proper error messages for invalid OTPs, expired OTPs, and failed requests.</li>
+    <li>JWT Authentication: Users can log in and receive a JWT token for secure access.</li>
+    <li>Error Handling: Handles invalid or expired OTPs with proper error messages.</li>
+</ul>
+
+<h2 id="technologies-used">Technologies Used</h2>
+<ul>
+    <li><strong>Django</strong> (Backend framework)</li>
+    <li><strong>Django REST Framework</strong> (API development)</li>
+    <li><strong>JWT</strong> (JSON Web Token for secure authentication)</li>
+    <li><strong>PostgreSQL</strong> (Database)</li>
+    <li><strong>SMTP</strong> (Gmail SMTP for sending emails)</li>
 </ul>
 
 <h2 id="project-structure">Project Structure</h2>
@@ -87,19 +96,9 @@ authentication/
     └── email_verification.html
 </code></pre>
 
-<h2 id="technologies-used">Technologies Used</h2>
-<ul>
-    <li><strong>Django</strong> (Backend framework)</li>
-    <li><strong>Django REST Framework</strong> (API development)</li>
-    <li><strong>JWT</strong> (JSON Web Token for secure authentication)</li>
-    <li><strong>PostgreSQL</strong> (Database)</li>
-    <li><strong>SMTP</strong> (Gmail SMTP for sending emails)</li>
-</ul>
-
 <h2 id="setup-instructions">Setup Instructions</h2>
 
 <h3>Prerequisites</h3>
-<p>Make sure you have the following installed:</p>
 <ul>
     <li>Python 3.8+</li>
     <li>pip (Python package manager)</li>
@@ -168,7 +167,7 @@ python manage.py runserver</code></pre>
     </tbody>
 </table>
 
-<h3>Sample Request/Response:</h3>
+<h3 id="sample-requestresponse">Sample Request/Response:</h3>
 
 <h4>Register User:</h4>
 <p><strong>Endpoint:</strong> <code>POST /api/register/</code></p>
@@ -215,4 +214,7 @@ send_mail('Subject here', 'Here is the message.', 'your-email@gmail.com', ['reci
 
 <p><strong>Manthan Khamkar</strong><br>
 Email: <a href="mailto:manthankhamkar9@gmail.com">manthankhamkar9@gmail.com</a><br>
-GitHub: <a href="https://github.com/Manthan-Khamkar" target="_blank">Manthan-Khamkar</a></p
+GitHub: <a href="https://github.com/Manthan-Khamkar" target="_blank">Manthan-Khamkar</a></p>
+
+</body>
+</html>
