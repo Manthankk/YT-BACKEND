@@ -215,7 +215,4 @@ send_mail('Subject here', 'Here is the message.', 'your-email@gmail.com', ['reci
 
 <p><strong>Manthan Khamkar</strong><br>
 Email: <a href="mailto:manthankhamkar9@gmail.com">manthankhamkar9@gmail.com</a><br>
-GitHub: <a href="https://github.com/Manthan-Khamkar" target="_blank">Manthan-Khamkar</a></p>
-
-</body>
-</html>
+GitHub: <a href="https://github.com/Manthan-Khamkar" target="_blank">Manthan-Khamkar</a></p
