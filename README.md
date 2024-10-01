@@ -4,49 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Django OTP-Based Email Verification API</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 20px;
-        }
-        h1, h2, h3 {
-            color: #333;
-        }
-        pre {
-            background: #f4f4f4;
-            padding: 10px;
-            border-radius: 5px;
-            overflow-x: auto;
-        }
-        code {
-            color: #c7254e;
-            background-color: #f9f2f4;
-            padding: 2px 4px;
-            border-radius: 3px;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-        }
-        table, th, td {
-            border: 1px solid #ddd;
-        }
-        th, td {
-            padding: 12px;
-            text-align: left;
-        }
-        th {
-            background-color: #f4f4f4;
-        }
-    </style>
 </head>
 <body>
 
 <h1>Django OTP-Based Email Verification API</h1>
 
-<p>A Django-based authentication system that incorporates OTP (One-Time Password) email verification. This API allows users to register, verify their email using an OTP sent to their inbox, and log in securely using JWT (JSON Web Token).</p>
+<p>This project is a Django-based authentication system that incorporates OTP (One-Time Password) email verification. The API allows users to register, verify their email using an OTP sent to their inbox, and log in securely using JWT (JSON Web Token).</p>
 
 <h2>Table of Contents</h2>
 <ul>
@@ -69,15 +32,15 @@
 
 <h2 id="technologies-used">Technologies Used</h2>
 <ul>
-    <li><strong>Django</strong> (Backend framework)</li>
-    <li><strong>Django REST Framework</strong> (API development)</li>
-    <li><strong>JWT</strong> (JSON Web Token for secure authentication)</li>
-    <li><strong>PostgreSQL</strong> (Database)</li>
-    <li><strong>SMTP</strong> (Gmail SMTP for sending emails)</li>
+    <li>Django (Backend framework)</li>
+    <li>Django REST Framework (API development)</li>
+    <li>JWT (JSON Web Token for secure authentication)</li>
+    <li>PostgreSQL (Database)</li>
+    <li>SMTP (Gmail SMTP for sending emails)</li>
 </ul>
 
 <h2 id="project-structure">Project Structure</h2>
-<pre><code>
+<pre>
 authentication/
 ├── authorize/
 │   ├── __init__.py
@@ -94,7 +57,7 @@ authentication/
 │   └── asgi.py
 └── templates/
     └── email_verification.html
-</code></pre>
+</pre>
 
 <h2 id="setup-instructions">Setup Instructions</h2>
 
@@ -107,67 +70,59 @@ authentication/
 
 <h3>Step-by-Step Guide</h3>
 <ol>
-    <li><strong>Clone the repository:</strong>
+    <li>Clone the repository:
         <pre><code>git clone https://github.com/Manthan-Khamkar/Django-OTP-Email-Verification.git
 cd Django-OTP-Email-Verification</code></pre>
     </li>
-    <li><strong>Create a virtual environment and activate it:</strong>
+    <li>Create a virtual environment and activate it:
         <pre><code>python -m venv venv
-source venv/bin/activate  # For Windows: venv\Scripts\activate</code></pre>
+source venv/bin/activate</code></pre>
     </li>
-    <li><strong>Install the dependencies:</strong>
+    <li>Install the dependencies:
         <pre><code>pip install -r requirements.txt</code></pre>
     </li>
-    <li><strong>Configure SMTP settings for email verification:</strong>
-
-        <p>Open the <code>settings.py</code> file and update the following with your Gmail credentials:</p>
-        <pre><code>EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+    <li>Configure SMTP settings for email verification by editing the <code>settings.py</code> file:</li>
+    <pre><code>
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'your-email@gmail.com'
 EMAIL_HOST_PASSWORD = 'your-app-specific-password'</code></pre>
-        <p><strong>Note:</strong> For security, it's best to use an App Password instead of your main Gmail password.</p>
-    </li>
-    <li><strong>Apply the migrations and start the server:</strong>
+    <li>Apply the migrations and start the server:
         <pre><code>python manage.py migrate
 python manage.py runserver</code></pre>
     </li>
-    <li><strong>Access the project locally:</strong>
+    <li>Access the project locally:
         <p>Open your browser and go to <code>http://127.0.0.1:8000/</code></p>
     </li>
 </ol>
 
 <h2 id="api-endpoints">API Endpoints</h2>
-
-<table>
-    <thead>
-        <tr>
-            <th>Endpoint</th>
-            <th>Method</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><code>/api/register/</code></td>
-            <td>POST</td>
-            <td>Register a new user</td>
-        </tr>
-        <tr>
-            <td><code>/api/request-otp/</code></td>
-            <td>POST</td>
-            <td>Request OTP for email verification</td>
-        </tr>
-        <tr>
-            <td><code>/api/verify-otp/</code></td>
-            <td>POST</td>
-            <td>Verify the OTP and log in the user</td>
-        </tr>
-    </tbody>
+<table border="1">
+    <tr>
+        <th>Endpoint</th>
+        <th>Method</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td>/api/register/</td>
+        <td>POST</td>
+        <td>Register a new user</td>
+    </tr>
+    <tr>
+        <td>/api/request-otp/</td>
+        <td>POST</td>
+        <td>Request OTP for email verification</td>
+    </tr>
+    <tr>
+        <td>/api/verify-otp/</td>
+        <td>POST</td>
+        <td>Verify the OTP and log in the user</td>
+    </tr>
 </table>
 
-<h3 id="sample-requestresponse">Sample Request/Response:</h3>
+<h3>Sample Request/Response:</h3>
 
 <h4>Register User:</h4>
 <p><strong>Endpoint:</strong> <code>POST /api/register/</code></p>
@@ -203,8 +158,8 @@ python manage.py runserver</code></pre>
 }</code></pre>
 
 <h2 id="testing">Testing</h2>
-<p>Use <strong>Postman</strong> or <strong>cURL</strong> to test the API endpoints.</p>
-<p>Alternatively, you can test email functionality in Django's interactive shell:</p>
+<p>Use Postman or cURL to test the API endpoints.</p>
+<p>You can also test email functionality in Django's interactive shell:</p>
 <pre><code>python manage.py shell
 from django.core.mail import send_mail
 send_mail('Subject here', 'Here is the message.', 'your-email@gmail.com', ['recipient@example.com'], fail_silently=False)</code></pre>
