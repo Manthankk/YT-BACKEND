@@ -5,7 +5,7 @@ const registerUser = asyncHandler(async (req, res) => {
     console.log("Request body:", req.body);  // Log the request body for debugging
 
     res.status(200).json({
-        message: "ok"
+        message: "Keep doing it"
     });
 });
 
